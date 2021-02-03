@@ -13,15 +13,21 @@ class  TodoForm extends Component {
         })
      }
 
+     handleSubmit=(e)=>{
+        e.preventDefault()// adding this so that it does not refresh
+     }
+
     render() { 
         return ( 
             <div>
+              <form onSubmit={this.handleSubmit}>
                 <input
                     name="text"
                     placeholder="todo.."
                     value={this.state.text}
                     onChange={this.handleChange}
                 />
+                /</form>
             </div>
          );
     }
