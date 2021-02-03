@@ -15,9 +15,11 @@ class  TodoForm extends Component {
 
      handleSubmit=(e)=>{
         e.preventDefault()// adding this so that it does not refresh
+        this.props.addTodo(this.state.text)
      }
 
     render() { 
+        // console.log(this.props);
         return ( 
             <div>
               <form onSubmit={this.handleSubmit}>
@@ -27,7 +29,7 @@ class  TodoForm extends Component {
                     value={this.state.text}
                     onChange={this.handleChange}
                 />
-                /</form>
+                </form>
             </div>
          );
     }
