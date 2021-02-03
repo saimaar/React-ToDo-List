@@ -21,10 +21,12 @@ class App extends Component{
   }
 
   render(){
-    console.log(this.state.todos);
+    // console.log(this.state.todos);
+    let displayTodos = this.state.todos.map(todo=> <p>{todo.text}</p>)
   return (
     <div className="App">
-    <TodoForm addTodo={this.addTodo}/>
+      <TodoForm addTodo={this.addTodo}/>
+      {displayTodos}
     </div>
   );
   }

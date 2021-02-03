@@ -13,6 +13,8 @@ class  TodoForm extends Component {
         })
      }
 
+     // in the handle submit we are adding new todo, which would mean it is not 
+     //completed so we set it to false;`
      handleSubmit=(e)=>{
         e.preventDefault()// adding this so that it does not refresh
         this.props.addTodo({
@@ -28,9 +30,10 @@ class  TodoForm extends Component {
 
     render() { 
         // console.log(this.props);
+        // handle submit on form will allow us to use the enter key to add new todo
         return ( 
             <div>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}> 
                 <input
                     name="text"
                     placeholder="todo.."
