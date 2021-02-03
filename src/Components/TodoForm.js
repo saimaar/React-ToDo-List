@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import shortid from 'shortid'
 class  TodoForm extends Component {
     state = { 
         text: ""
@@ -15,7 +15,12 @@ class  TodoForm extends Component {
 
      handleSubmit=(e)=>{
         e.preventDefault()// adding this so that it does not refresh
-        this.props.addTodo(this.state.text)
+        this.props.addTodo({
+            text: this.state.text,
+            completed: false,
+            id: shortid.generate()
+        
+        })
         this.setState({
             text: ""
         })
