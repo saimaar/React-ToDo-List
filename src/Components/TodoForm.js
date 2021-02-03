@@ -16,6 +16,9 @@ class  TodoForm extends Component {
      handleSubmit=(e)=>{
         e.preventDefault()// adding this so that it does not refresh
         this.props.addTodo(this.state.text)
+        this.setState({
+            text: ""
+        })
      }
 
     render() { 
@@ -29,6 +32,7 @@ class  TodoForm extends Component {
                     value={this.state.text}
                     onChange={this.handleChange}
                 />
+                <button onClick={this.handleSubmit}>Submit</button>
                 </form>
             </div>
          );
