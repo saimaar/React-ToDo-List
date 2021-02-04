@@ -38,9 +38,10 @@ class App extends Component{
     })
   }
 
-
   render(){
-     console.log(this.state.todos);
+    //3. Show the number of active todos, Using Filter method
+//in the .filter method, if the condition is matched it keeps them
+    let filteredActiveTodos= this.state.todos.filter(todo => todo.completed === false)
     let displayTodos = this.state.todos.map(todo=> <Todo 
       key={todo.id} 
       todo={todo} 
@@ -49,6 +50,7 @@ class App extends Component{
     <div className="App">
       <TodoForm addTodo={this.addTodo}/>
       {displayTodos}
+      <h3>Active todos:</h3>{filteredActiveTodos.length}
     </div>
   );
   }
